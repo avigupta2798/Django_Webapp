@@ -25,4 +25,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('accounts/', include('accounts.urls')),
     path('logout/', views.user_logout, name='logout'),
+    path('api/v1/', include('api.urls')),
 ]

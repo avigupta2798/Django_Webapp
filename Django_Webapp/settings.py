@@ -37,8 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts.apps.AccountsConfig'
+    'rest_framework',
+    'rest_framework.authtoken',
+    'accounts.apps.AccountsConfig',
+    'api',
 ]
+
+REST_FRAMEWORK = {
+	'DEFAULT_AUTHENTICATION_CLASSES': (
+		'rest_framework.authentication.TokenAuthentication',
+	),
+	'DEFAULT_PERMISSION_CLASSES': (
+	)
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
