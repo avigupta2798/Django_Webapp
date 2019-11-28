@@ -13,7 +13,10 @@ python3 -m venv /path/to/new/virtual/environment
 ```bash
 pip install -r requirements.txt
 ```
-- Change the DB name, username and Password in settings.py file
+
+- Create a Database in MySql
+
+- Change the Database name, username and Password in settings.py file
 
 - Run the manage.py file
 
