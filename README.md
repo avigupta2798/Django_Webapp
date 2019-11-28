@@ -15,7 +15,7 @@ pip install -r requirements.txt
 ```
 - Change the DB name, username and Password in settings.py file
 
--Run the manage.py file
+- Run the manage.py file
 
 ```bash
 python manage.py runserver
