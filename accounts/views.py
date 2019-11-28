@@ -52,7 +52,6 @@ def user_login(request):
                 login(request,user)
                 user = UserProfileInfo.objects.get(user__username=username)
                 return render(request, 'accounts/user_profile.html', {"user":user})
-                #return HttpResponseRedirect(reverse('index'))
             else:
                 return HttpResponse("Your account was inactive.")
         else:
