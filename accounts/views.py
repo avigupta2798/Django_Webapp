@@ -1,10 +1,11 @@
-# dappx/views.py
+# accounts/views.py
 from django.shortcuts import render
 from accounts.forms import UserForm,UserProfileInfoForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from accounts.models import UserProfileInfo
 
 def index(request):
     return render(request,'accounts/index.html')
@@ -29,9 +30,6 @@ def register(request):
             user.save()
             profile = profile_form.save(commit=False)
             profile.user = user
-            if 'profile_pic' in request.FILES:
-                print('found it')
-                profile.profile_pic = request.FILES['profile_pic']
             profile.save()
             registered = True
         else:
@@ -52,7 +50,9 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request,user)
-                return HttpResponseRedirect(reverse('index'))
+                user = UserProfileInfo.objects.get(user__username=username)
+                return render(request, 'accounts/user_profile.html', {"user":user})
+                #return HttpResponseRedirect(reverse('index'))
             else:
                 return HttpResponse("Your account was inactive.")
         else:

@@ -4,4 +4,8 @@ from django.contrib import admin
 from accounts.models import UserProfileInfo, User
 # Register your models here.
 
-admin.site.register(UserProfileInfo)
+class UserProfileInfoAdmin(admin.ModelAdmin):
+    search_fields = ['name', 'phone', 'email']
+    list_display = ('id', 'name', 'phone', 'email') 
+
+admin.site.register(UserProfileInfo, UserProfileInfoAdmin)

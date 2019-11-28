@@ -8,8 +8,8 @@ class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     class Meta():
         model = User
-        fields = ('username','password','email')
+        fields = ('username','password')
 class UserProfileInfoForm(forms.ModelForm):
      class Meta():
          model = UserProfileInfo
-         fields = ('id','name','phone')
+         fields = ('id','name','phone','email')
