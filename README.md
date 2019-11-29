@@ -18,6 +18,16 @@ pip install -r requirements.txt
 
 - Change the Database name, username and Password in settings.py file
 
+- Create a SuperUser for the project (admin)
+
+```bash
+python manage.py createsuperuser
+- Username: root
+- Email address: 
+- Password: root
+- Password (again): root
+```
+
 - Run the manage.py file
 
 ```bash
